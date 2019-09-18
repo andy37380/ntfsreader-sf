@@ -180,9 +180,9 @@ namespace System.IO.Filesystem.Ntfs
         private struct AttributeStandardInformation
         {
             public UInt64 CreationTime;
-            public UInt64 FileChangeTime;
-            public UInt64 MftChangeTime;
             public UInt64 LastAccessTime;
+            public UInt64 MftChangeTime;
+            public UInt64 FileChangeTime;
             public UInt32 FileAttributes;       /* READ_ONLY=0x01, HIDDEN=0x02, SYSTEM=0x04, VOLUME_ID=0x08, ARCHIVE=0x20, DEVICE=0x40 */
             public UInt32 MaximumVersions;
             public UInt32 VersionNumber;
