@@ -61,15 +61,12 @@ namespace System.IO.Filesystem.Ntfs
             if (driveInfo.DriveType != DriveType.Fixed)
                 tmpDriveInfo = ResolveLocalMapDrive(driveInfo);
 
-            _rootPath = tmpDriveInfo.Name;
-
-            StringBuilder builder = new StringBuilder(1024);
-            GetVolumeNameForVolumeMountPoint(tmpDriveInfo.RootDirectory.Name, builder, builder.Capacity);
+            _rootPath = tmpDriveInfo.Name;           
 
             _driveInfo = driveInfo;
             _retrieveMode = retrieveMode;
 
-            string volume = builder.ToString().TrimEnd(new char[] { '\\' });
+            string volume = $@"\\.\{driveInfo.Name.TrimEnd('\\')}";
 
             _volumeHandle =
                 CreateFile(
