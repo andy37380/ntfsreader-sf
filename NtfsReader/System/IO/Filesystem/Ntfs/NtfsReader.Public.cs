@@ -139,7 +139,7 @@ namespace System.IO.Filesystem.Ntfs
             //TODO use Parallel.Net to process this when it becomes available
             UInt32 nodeCount = (UInt32)_nodes.Length;
             for (UInt32 i = 0; i < nodeCount; ++i)
-                if (_nodes[i].NameIndex != 0 && GetNodeFullNameCore(i).StartsWith(rootPath, StringComparison.InvariantCultureIgnoreCase))
+                if (_nodes[i].NameIndex != 0)
                     nodes.Add(new NodeWrapper(this, i, _nodes[i]));
 
             stopwatch.Stop();
